@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock %}
+{% block content %}
+<div class="container-fluid my-5 text-light">
+    <div class="row justify-content-center my-2">
+        <div class="col-6">
+            {% if movie.image %}
+            <img class="img-fluid" src="{{movie.image.url}}">
+            {% endif %}
+        </div>
+        <div class="col-5">
+            <p class="display-2 my-2">{{movie.title}}</p>
+            <p class="display-6 my-2">{{movie.year}}</p>
+            <p class="lead">{{movie.description}}</p>
+            <div class="text-start">
+                <a class="btn btn-success" href="../">Go Back</a>
+                <a class="btn btn-info" href="{% url 'movie:edit_movie' movie.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'movie:delete_movie' movie.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

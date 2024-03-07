@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock %}
+{% block content %}
+<div class="container text-light">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <p class="display-5">Delete Movie</p>
+            <form action="" method="post" enctype="multipart/form-data" class="text-center">
+                {% csrf_token %}
+                <p>R u sure to delete "{{movie}}" ?</p>
+                <table>
+                    {{form.as_table}}
+                </table>
+                <a class="btn btn-primary" href="/">Go back</a>
+                <button class="btn btn-danger" type="submit" name="" id="">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

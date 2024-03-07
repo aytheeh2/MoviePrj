@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}HOME{% endblock %}
+{% block content %}
+<div class="container-fluid my-5 text-light">
+    <div class="row justify-content-center my-2">
+        <div class="col-4 col-offset-4">
+            <form method="post" action="{% url 'movie:add_movie' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title">
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="year" class="form-control" id="exampleInputPassword1" placeholder="Year">
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="description" class="form-control" id="exampleInputPassword1"
+                        placeholder="Description">
+                </div>
+                <div class="mb-3">
+                    <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="Image">
+                </div>
+                <a class="btn btn-primary" href="/">Go back</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
